@@ -6,10 +6,12 @@ const handler = createHandler({
 });
 
 http.createServer(function (req, res) {
-    handler(req, res, function (err) {
-        res.statusCode = 404;
-        res.end("no such location");
-    });
+    // handler(req, res, function (err) {
+    //     res.statusCode = 404;
+    //     res.end("no such location");
+    // });
+    response.writeHead(200, {'Content-Type': 'text/plain'});
+    response.end('Hello World\n');
 }).listen(7777);
 
 handler.on("error", function (err) {
