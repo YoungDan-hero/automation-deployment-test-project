@@ -24,7 +24,7 @@ handler.on("push", function (event) {
     const loading = ora("正在全力构建项目");
     loading.start();
     run_cmd("sh", ["./auto.sh"], function (text) {
-        loading.start();
+        loading.stop();
         console.log("自动构建成功");
     }); // 执行autoBuild.sh
 });
