@@ -1,7 +1,7 @@
 import http from "http";
-import createHandler from 'github-webhook-handler'
+import createHandler from "github-webhook-handler";
 import ora from "ora";
-
+import { spawn } from "child_process";
 const handler = createHandler({
     path: "/webhook",
     secret: "mySecretKiKoHashKey",
@@ -30,7 +30,6 @@ handler.on("push", function (event) {
 });
 
 const run_cmd = (cmd, args, callback) => {
-    const spawn = import("child_process").spawn;
     const child = spawn(cmd, args);
     let resp = "";
 
