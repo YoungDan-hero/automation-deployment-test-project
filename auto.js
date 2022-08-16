@@ -13,8 +13,8 @@ app.all("/", (request, response) => {
     response.setHeader("Access-Control-Allow-Origin", "*");
     //接受所有响应头信息
     response.setHeader("Access-Control-Allow-Headers", "*");
-    console.log("handler" + handler);
-    console.log("request" + request);
+    console.log("handler" + JSON.stringify(handler));
+    console.log("request" + JSON.stringify(request));
     handler(request, response, function (err) {
         console.log("触发了服务");
         response.statusCode = 200;
