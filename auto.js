@@ -27,7 +27,7 @@ handler.on("push", function (event) {
 const run_cmd = (cmd, args, callback) => {
     const spawn = require("child_process").spawn;
     const child = spawn(cmd, args);
-    const resp = "";
+    let resp = "";
 
     child.stdout.on("data", function (buffer) {
         resp += buffer.toString();
