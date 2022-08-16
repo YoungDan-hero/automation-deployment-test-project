@@ -27,5 +27,5 @@ handler.on("push", function (event) {
 });
 
 app.listen(7777, () => {
-    console.log("服务启动，监听到7777端口a!");
+    console.log("服务启动，监听到7777端口!");
 });
