@@ -30,7 +30,7 @@ handler.on("push", function (event) {
 });
 
 const run_cmd = (cmd, args, callback) => {
-    const spawn = require("child_process").spawn;
+    const spawn = import("child_process").spawn;
     const child = spawn(cmd, args);
     let resp = "";
 
