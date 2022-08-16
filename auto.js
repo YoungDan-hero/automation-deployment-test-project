@@ -1,5 +1,7 @@
 const http = require("http");
 const createHandler = require("github-webhook-handler");
+const ora = require("ora");
+
 const handler = createHandler({
     path: "/webhook",
     secret: "mySecretKiKoHashKey",
@@ -19,8 +21,11 @@ handler.on("error", function (err) {
 });
 
 handler.on("push", function (event) {
+    const loading = ora("正在全力构建项目");
+    loading.start();
     run_cmd("sh", ["./auto.sh"], function (text) {
-        console.log(text);
+        loading.stop();
+        console.log("自动构建成功");
     }); // 执行autoBuild.sh
 });
 
