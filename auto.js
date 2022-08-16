@@ -15,6 +15,7 @@ app.all("/", (request, response) => {
     response.setHeader("Access-Control-Allow-Headers", "*");
 
     handler(request, response, function (err) {
+        console.log(err);
         response.statusCode = 404;
         response.end("no such location");
     });
