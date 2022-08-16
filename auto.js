@@ -19,7 +19,7 @@ handler.on("error", function (err) {
 });
 
 handler.on("push", function (event) {
-    run_cmd("sh", ["./autoBuild.sh"], function (text) {
+    run_cmd("sh", ["./auto.sh"], function (text) {
         console.log(text);
     }); // 执行autoBuild.sh
 });
