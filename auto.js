@@ -1,18 +1,26 @@
-import http from "http";
+import express from "express";
+const app = express();
 import createHandler from "github-webhook-handler";
+
 const handler = createHandler({
     path: "/webhook",
     secret: "mySecretKiKoHashKey",
 });
 
-http.createServer(function (req, res) {
-    // handler(req, res, function (err) {
-    //     res.statusCode = 404;
-    //     res.end("no such location");
-    // });
-    response.writeHead(200, {'Content-Type': 'text/plain'});
-    response.end('Hello World\n');
-}).listen(7777);
+//接受所有请求方式
+app.all("/", (request, response) => {
+    //设置响应头允许跨域
+    response.setHeader("Access-Control-Allow-Origin", "*");
+    //接受所有响应头信息
+    response.setHeader("Access-Control-Allow-Headers", "*");
+
+    handler(request, response, function (err) {
+        response.statusCode = 404;
+        response.end("no such location");
+    });
+    
+    console.log(1);
+});
 
 handler.on("error", function (err) {
     console.error("Error:", err.message);
@@ -24,4 +32,8 @@ handler.on("push", function (event) {
         event.payload.repository.name,
         event.payload.ref
     );
+});
+
+app.listen(7777, () => {
+    console.log("启动");
 });
