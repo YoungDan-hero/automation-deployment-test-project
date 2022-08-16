@@ -6,13 +6,13 @@ const handler = createHandler({
 });
 
 http.createServer(function (req, res) {
-    
+
     handler(req, res, function (err) {
         res.statusCode = 200;
         res.end("no such location");
     });
 
-    console.log("触发了");
+    console.log("触发了嘻嘻");
 }).listen(7777);
 
 handler.on("error", function (err) {
