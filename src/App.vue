@@ -1,6 +1,6 @@
 <template>
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="于晴啊,大美女！！" />
+    <HelloWorld msg="于晴啊,大美女！1！" />
 </template>
 
 <script>
