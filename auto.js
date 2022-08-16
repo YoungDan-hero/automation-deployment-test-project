@@ -11,7 +11,7 @@ http.createServer(function (req, res) {
         res.end("no such location");
     });
 
-    console.log("触发了嘻嘻");
+    console.log("触发了嘻嘻a");
 }).listen(7777);
 
 handler.on("error", function (err) {
