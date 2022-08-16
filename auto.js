@@ -13,17 +13,13 @@ app.all("/", (request, response) => {
     response.setHeader("Access-Control-Allow-Origin", "*");
     //接受所有响应头信息
     response.setHeader("Access-Control-Allow-Headers", "*");
-
+    console.log("handler" + handler);
+    console.log("request" + request);
     handler(request, response, function (err) {
+        console.log("触发了服务");
         response.statusCode = 200;
         response.end("success");
     });
-
-    console.log("触发了服务");
-});
-
-handler.on("error", function (err) {
-    console.error("Error:", err.message);
 });
 
 handler.on("push", function (event) {
