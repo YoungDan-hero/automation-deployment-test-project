@@ -19,6 +19,6 @@ handler.on("error", function (err) {
 });
 
 handler.on("push", function (event) {
-    console.log(event);
+    console.log(event.payload.repository.name);
     // console.log(event.repository.name);
 });
