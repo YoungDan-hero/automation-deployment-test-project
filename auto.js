@@ -3,6 +3,7 @@ const createHandler = require("github-webhook-handler");
 const { execSync } = require("child_process");
 const fs = require("fs")
 const path = require("path")
+
 const handler = createHandler({
     path: "/webhook",
     secret: "mySecretKiKoHashKey",
@@ -23,9 +24,8 @@ handler.on("error", function (err) {
 function deleteFolderRecursive(path) {
     if( fs.existsSync(path) ) {
         fs.readdirSync(path).forEach(function(file) {
-            console.log(file)
             const curPath = path + "/" + file;
-            // console.log(curPath)
+            console.log(curPath)
             // if(fs.statSync(curPath).isDirectory()) { // recurse
             //     deleteFolderRecursive(curPath);
             // } else { // delete file
@@ -38,8 +38,7 @@ function deleteFolderRecursive(path) {
 
 
 handler.on("push", function (event) {
-    const projectDir =`./${event.payload.repository.name}`
+    const projectDir = path.resolve()
     deleteFolderRecursive(projectDir)
     console.log(projectDir);
-    // console.log(event.repository.name);
 });
