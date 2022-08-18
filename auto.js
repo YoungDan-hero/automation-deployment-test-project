@@ -23,8 +23,9 @@ handler.on("error", function (err) {
 function deleteFolderRecursive(path) {
     if( fs.existsSync(path) ) {
         fs.readdirSync(path).forEach(function(file) {
+            console.log(file)
             const curPath = path + "/" + file;
-            console.log(curPath)
+            // console.log(curPath)
             // if(fs.statSync(curPath).isDirectory()) { // recurse
             //     deleteFolderRecursive(curPath);
             // } else { // delete file
@@ -37,7 +38,7 @@ function deleteFolderRecursive(path) {
 
 
 handler.on("push", function (event) {
-    const projectDir = path.resolve(`./${event.payload.repository.name}`)
+    const projectDir =`./${event.payload.repository.name}`
     deleteFolderRecursive(projectDir)
     console.log(projectDir);
     // console.log(event.repository.name);
