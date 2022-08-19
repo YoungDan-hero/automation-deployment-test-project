@@ -1,9 +1,7 @@
 .DS_Store
 node_modules
 /dist
-.dockerignore
-Dockerfile
-auto.js
+
 
 # local env files
 .env.local
