@@ -1,6 +1,6 @@
 <template>
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="于晴啊,大美女,docker测试3" />
+    <HelloWorld msg="于晴啊,大美女,docker测试786" />
 </template>
 
 <script>
