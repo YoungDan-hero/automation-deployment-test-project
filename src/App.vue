@@ -1,6 +1,6 @@
 <template>
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="于晴啊,大美女,docker测试788" />
+    <HelloWorld msg="于晴啊,大美女,docker测试789" />
 </template>
 
 <script>
@@ -24,3 +24,4 @@ export default {
     margin-top: 60px;
 }
 </style>
+
